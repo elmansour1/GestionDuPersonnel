@@ -8,6 +8,7 @@ package gestionpersonnel.vue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import javax.swing.event.CaretListener;
 
 /**
  *
@@ -35,9 +36,11 @@ public class MainPrincipal {
         entre_affectAffectation = new EntrerAffectation();
         entre_Permission = new EntrerPermission();
         
-        afficherMenu.addEmployeListener(new ListeEmployeListener());
         entre_employe.addValiderInsertListener(new AjouterEmploye());
+       // entre_employe.addEnabledTextFieldManager((CaretListener) new AjouterEmploye());
         entre_affectAffectation.addValiderInsertListener(new AjouterAffectation());
+        
+        afficherMenu.addEmployeListener(new ListeEmployeListener());
         
         
         
