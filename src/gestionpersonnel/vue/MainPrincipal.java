@@ -37,6 +37,7 @@ public class MainPrincipal {
         
         afficherMenu.addEmployeListener(new ListeEmployeListener());
         entre_employe.addValiderInsertListener(new AjouterEmploye());
+        entre_affectAffectation.addValiderInsertListener(new AjouterAffectation());
         
         
         
@@ -57,7 +58,18 @@ public class MainPrincipal {
     class AjouterEmploye implements ActionListener{
         public void actionPerformed(ActionEvent e){
             frame.setContentPane(entre_employe);
+            frame.setVisible(true);
         }
+    }
+    
+    class AjouterAffectation implements ActionListener{
+
+       
+        public void actionPerformed(ActionEvent e) {
+            frame.setContentPane(entre_affectAffectation);
+            frame.setVisible(true);
+        }
+        
     }
 
     public JFrame getFrame() {
