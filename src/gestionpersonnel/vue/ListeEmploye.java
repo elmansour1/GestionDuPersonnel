@@ -8,6 +8,7 @@ package gestionpersonnel.vue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -61,5 +62,23 @@ public class ListeEmploye extends JPanel{
         this.add(new JScrollPane(tableListeEmploye));
         gbc.gridx = 0;
 	gbc.gridwidth = 1;
+        
+        gbc.gridx = 0;
+        gbc.gridy = 18;
+        gbc.gridwidth = 1;
+	gbc.gridheight = 1;
+	this.add(valider,gbc);
+		 
+	gbc.gridx = 2;
+	gbc.gridwidth = GridBagConstraints.REMAINDER;
+	this.add(annuler, gbc);
+    }
+    
+    public void addListeEmployeListener(ActionListener listener){
+        valider.addActionListener(listener);
+    }
+    
+    public void addCancelListener(ActionListener listener){
+        annuler.addActionListener(listener);
     }
 }
