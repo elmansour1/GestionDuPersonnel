@@ -5,6 +5,15 @@
  */
 package gestionpersonnel;
 
+import gestionpersonnel.controlleur.MainController;
+import gestionpersonnel.serviceDao.IAffectationServiceDao;
+import gestionpersonnel.serviceDao.IAgenceServiceDao;
+import gestionpersonnel.serviceDao.IEmployeServiceDao;
+import gestionpersonnel.serviceDao.IPermissionServiceDao;
+import gestionpersonnel.serviceDao.impl.AffectationServiceDaoImpl;
+import gestionpersonnel.serviceDao.impl.AgenceServiceDaoImpl;
+import gestionpersonnel.serviceDao.impl.EmployeServiceDaoImpl;
+import gestionpersonnel.serviceDao.impl.PermissionServiceDaoImpl;
 import gestionpersonnel.vue.MainPrincipal;
 
 /**
@@ -19,6 +28,11 @@ public class GestionPersonnel {
     public static void main(String[] args) {
         // TODO code application logic here
         MainPrincipal mp = new MainPrincipal();
+        IEmployeServiceDao iemploye = new EmployeServiceDaoImpl();
+        IAffectationServiceDao iAffectationServiceDao = new AffectationServiceDaoImpl();
+        IAgenceServiceDao iAgenceServiceDao = new AgenceServiceDaoImpl();
+        IPermissionServiceDao iPermissionServiceDao = new PermissionServiceDaoImpl();
+        MainController main = new MainController(mp, iemploye, iAgenceServiceDao, iAffectationServiceDao, iPermissionServiceDao);
     }
     
 }
