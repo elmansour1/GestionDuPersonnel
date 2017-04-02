@@ -77,7 +77,7 @@ public class EntrerPermission extends JPanel{
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        gbc.gridheight = 2;
+        //gbc.gridheight = 2;
         this.add(applicationLabel,gbc);
         
          gbc.gridx = 0;
@@ -121,7 +121,7 @@ public class EntrerPermission extends JPanel{
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         this.add(matricule,gbc);
         
-         gbc.gridx = 0;
+        gbc.gridx = 0;
         gbc.gridy = 5;
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
@@ -200,7 +200,7 @@ public class EntrerPermission extends JPanel{
         gbc.gridx = 2;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         this.add(categorie,gbc);
-        
+       /* 
         gbc.gridx = 0;
         gbc.gridy = 13;
         gbc.gridwidth = 1;
@@ -209,7 +209,7 @@ public class EntrerPermission extends JPanel{
         
         gbc.gridx = 2;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        this.add(nom,gbc);
+        this.add(nom,gbc);*/
          
         gbc.gridx = 0;
         gbc.gridy = 15;
