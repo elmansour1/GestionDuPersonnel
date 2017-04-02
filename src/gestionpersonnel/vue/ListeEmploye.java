@@ -32,8 +32,8 @@ public class ListeEmploye extends JPanel{
     public void init(){
         this.setLayout(new GridBagLayout());
         applicationLabel = new JLabel("Liste d'employé");
-        valider = new JButton("Valider");
-        annuler = new JButton("Annuler");
+        valider = new JButton("Imprimer");
+        annuler = new JButton("Retour");
         tableListeEmploye = new JTable();
         
         tableListeEmploye.setModel((new DefaultTableModel(
