@@ -16,6 +16,7 @@ import javax.swing.event.CaretListener;
  */
 public class MainPrincipal {
     private JFrame frame;
+    private Accueil accueil;
     private AfficherLeMenu afficherMenu;
     private ListeEmploye liste_Employe;
     private ListeAgence liste_Agence;
@@ -28,6 +29,7 @@ public class MainPrincipal {
     
     public MainPrincipal(){
         frame = new JFrame("Gestion de Permission et d'Affectation CONGELCAM");
+        accueil = new Accueil();
         afficherMenu = new AfficherLeMenu();
         liste_Employe = new ListeEmploye();
         liste_Agence = new ListeAgence();
@@ -36,6 +38,7 @@ public class MainPrincipal {
         entre_affectAffectation = new EntrerAffectation();
         entre_Permission = new EntrerPermission();
         
+        accueil.addContinuerListener(new Continuer());
         entre_employe.addValiderInsertListener(new AjouterEmploye());
        // entre_employe.addEnabledTextFieldManager((CaretListener) new AjouterEmploye());
         entre_affectAffectation.addValiderInsertListener(new AjouterAffectation());
@@ -49,6 +52,13 @@ public class MainPrincipal {
 	frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+    }
+    
+    class Continuer implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            frame.setContentPane(accueil);
+            frame.setVisible(true);
+        }
     }
     
     class ListeEmployeListener implements ActionListener{
