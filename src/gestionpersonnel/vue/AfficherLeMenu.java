@@ -30,7 +30,7 @@ public class AfficherLeMenu extends JPanel{
        GridBagConstraints gbc = new GridBagConstraints();
        gbc.insets = new Insets(10, 10, 10, 10);
        
-       applicationLabel = new JLabel("Application de Gestion du Personnel Affectation et Permission");
+       applicationLabel = new JLabel("Faite votre choix:");
        btnEmploye = new JButton("Ajouter un Employé");
        btnAgence = new JButton("Ajouter un Agence");
        btnAffectation = new JButton("Effectuer une Affectation");
@@ -38,27 +38,32 @@ public class AfficherLeMenu extends JPanel{
        btnAnnuler = new JButton("Quitter");
        
         gbc.gridx = 1;
-        gbc.gridy = 0;
+        gbc.gridy = 1;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        gbc.gridheight = 2;
+        //gbc.gridheight = 2;
         this.add(applicationLabel,gbc);
         
-        gbc.gridx = 0;
-        gbc.gridy = 5;
+        gbc.gridx = 1;
+        gbc.gridy = 2;
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         this.add(btnEmploye,gbc);
         
         gbc.gridx = 1;
+        gbc.gridy = 3;
         this.add(btnAgence,gbc);
         
-        gbc.gridx = 2;
+        
+        gbc.gridx = 1;
+        gbc.gridy = 5;
         this.add(btnAffectation,gbc);
         
-        gbc.gridx = 3;
+        gbc.gridx = 1;
+        gbc.gridy = 7;
         this.add(btnPermission,gbc);
         
-        gbc.gridx = 4;
+        gbc.gridx = 1;
+        gbc.gridy = 9;
         this.add(btnAnnuler , gbc);
    }
     
