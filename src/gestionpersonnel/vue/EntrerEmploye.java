@@ -22,12 +22,12 @@ import javax.swing.event.CaretListener;
  *
  * @author 
  */
-public class EntrerEmploye extends JFrame{
+public class EntrerEmploye extends JPanel{
     private JLabel applicationLabel,matriculeLabel,nomLabel,prenomLabel,dateNaissanceLabel,dateDePriseLabel,
             adresseLabel,sexeLabel,fonctionLabel,categorieLabel;
     private JTextField matricule,nom,prenom,adresse,dateNaissance,dateDePrise;
     private JComboBox sexe,fonction,categorie;
-    private JButton valider, annuler;
+    private JButton valider, annuler,quitter;
     
     private String sex[]={"Feminin","Masculin"};
     private String fon[]={"Peseur","Caissiere","Livreuse","Magasinier"};
@@ -43,7 +43,7 @@ public class EntrerEmploye extends JFrame{
         this.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
         
-        applicationLabel = new JLabel("GESTION DU PERSONNEL CONGELCAM");
+        //applicationLabel = new JLabel("GESTION DU PERSONNEL CONGELCAM");
         matriculeLabel = new JLabel("Matricule");
         nomLabel = new JLabel("Nom");
         prenomLabel = new JLabel("Prenom");
@@ -69,14 +69,15 @@ public class EntrerEmploye extends JFrame{
         
         valider = new JButton("Valider");
         annuler = new JButton("Annuler");
+        quitter = new JButton("Quitter");
         
         gbc.insets = new Insets(10, 10, 10, 10);
         
-        gbc.gridx = 1;
+      /*  gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         gbc.gridheight = 2;
-        this.add(applicationLabel,gbc);
+        this.add(applicationLabel,gbc);*/
         
         gbc.gridx = 0;
         gbc.gridy = 2;
@@ -174,6 +175,8 @@ public class EntrerEmploye extends JFrame{
         gbc.gridheight = 1;
         this.add(valider,gbc);
         
+        gbc.gridx = 1;
+        this.add(quitter,gbc);
         gbc.gridx = 2;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         this.add(annuler,gbc);
@@ -187,6 +190,10 @@ public class EntrerEmploye extends JFrame{
     
     public void addAnnulerAccueilListener(ActionListener listener){
         annuler.addActionListener(listener);
+    }
+    
+    public void addQutteListener(ActionListener listener){
+        quitter.addActionListener(listener);
     }
     
     public void addEnabledTextFieldManager(CaretListener caretListenner){
