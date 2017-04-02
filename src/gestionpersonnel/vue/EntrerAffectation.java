@@ -54,7 +54,7 @@ public class EntrerAffectation  extends JPanel{
         sexeLabel = new JLabel("Sexe");
         fonctionLabel = new JLabel("Fonction");
         categorieLabel = new JLabel("Categorie");
-        nomLabel = new JLabel("Nom");
+        nomLabel = new JLabel("Nom Agence");
         localisationLabel = new JLabel("Localisation");
         
         numero = new JTextField(10);
@@ -81,7 +81,7 @@ public class EntrerAffectation  extends JPanel{
         gbc.gridx = 1;
         gbc.gridy = 0;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        gbc.gridheight = 2;
+        //gbc.gridheight = 2;
         this.add(applicationLabel,gbc);
         
         gbc.gridx = 0;
