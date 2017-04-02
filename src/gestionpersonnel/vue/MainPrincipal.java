@@ -39,7 +39,10 @@ public class MainPrincipal {
         entre_Permission = new EntrerPermission();
         
         accueil.addContinuerListener(new Continuer());
+        accueil.addQuitterListener(new ExitListener());
         entre_employe.addValiderInsertListener(new AjouterEmploye());
+        entre_employe.addAnnulerAccueilListener(new AnnulerInsertIonEmploye());
+        entre_employe.addQutteListener(new ExitListener());
        // entre_employe.addEnabledTextFieldManager((CaretListener) new AjouterEmploye());
         entre_affectAffectation.addValiderInsertListener(new AjouterAffectation());
         
@@ -48,15 +51,18 @@ public class MainPrincipal {
         
         
         frame.setVisible(true);
-	frame.setSize(600, 600);
+	frame.setSize(600, 700);
 	frame.setLocationRelativeTo(null);
+        frame.add(liste_Agence);
+        //frame.add(entre_employe);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
     
     class Continuer implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            frame.setContentPane(accueil);
+            
+            frame.setContentPane(entre_employe);
             frame.setVisible(true);
         }
     }
@@ -68,12 +74,27 @@ public class MainPrincipal {
         }
     }
     
+    class AnnulerInsertIonEmploye implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            frame.setContentPane(entre_employe);
+            frame.setVisible(true);
+        }
+    }
+    
     class AjouterEmploye implements ActionListener{
         public void actionPerformed(ActionEvent e){
             frame.setContentPane(entre_employe);
             frame.setVisible(true);
         }
     }
+    
+    class ExitListener implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            frame.dispose();
+            System.exit(0);
+        }
+    }
+    
     
     class AjouterAffectation implements ActionListener{
 
