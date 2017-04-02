@@ -8,6 +8,7 @@ package gestionpersonnel.vue;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JFrame;
+import javax.swing.event.CaretEvent;
 import javax.swing.event.CaretListener;
 
 /**
@@ -40,20 +41,36 @@ public class MainPrincipal {
         
         accueil.addContinuerListener(new Continuer());
         accueil.addQuitterListener(new ExitListener());
+        
+        
         entre_employe.addValiderInsertListener(new AjouterEmploye());
-        entre_employe.addAnnulerAccueilListener(new AnnulerInsertIonEmploye());
+        entre_employe.addEnabledTextFieldManager(new EnableEmploye());
+        entre_employe.addAnnulerAccueilListener(new RetourAccueil());
         entre_employe.addQutteListener(new ExitListener());
+        liste_Employe.addCancelListener(new CancelToWelcole());
        // entre_employe.addEnabledTextFieldManager((CaretListener) new AjouterEmploye());
+       
+       entre_Agence.addValiderListener(new AjouterAgence());
+       entre_Agence.addAnnulerListener(new RetourAccueil());
+       
+       
         entre_affectAffectation.addValiderInsertListener(new AjouterAffectation());
+        entre_affectAffectation.addAnnulerAccueilListener(new RetourAccueil());
+        
+        entre_Permission.addAnnulerAccueilListener(new RetourAccueil());
         
         afficherMenu.addEmployeListener(new ListeEmployeListener());
+        afficherMenu.addAgenceListener(new AjouterAgence());
+        afficherMenu.addAnnulerListener(new RetourAccueil());
+        afficherMenu.addAffectationListener(new AjouterAffectation());
+        afficherMenu.addPermissionListener(new AjouterPermission());
         
         
         
         frame.setVisible(true);
 	frame.setSize(600, 700);
 	frame.setLocationRelativeTo(null);
-        frame.add(liste_Agence);
+        frame.add(accueil);
         //frame.add(entre_employe);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -62,14 +79,21 @@ public class MainPrincipal {
     class Continuer implements ActionListener{
         public void actionPerformed(ActionEvent e){
             
-            frame.setContentPane(entre_employe);
+            frame.setContentPane(afficherMenu);
+            frame.setVisible(true);
+        }
+    }
+    
+    class RetourAccueil implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            frame.setContentPane(accueil);
             frame.setVisible(true);
         }
     }
     
     class ListeEmployeListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
-            frame.setContentPane(afficherMenu);
+            frame.setContentPane(entre_employe);
             frame.setVisible(true);
         }
     }
@@ -88,6 +112,20 @@ public class MainPrincipal {
         }
     }
     
+    class AjouterAgence implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            frame.setContentPane(entre_Agence);
+            frame.setVisible(true);
+        }
+    }
+    
+    class AjouterPermission implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            frame.setContentPane(entre_Permission);
+            frame.setVisible(true);
+        }
+    }
+    
     class ExitListener implements ActionListener{
         public void actionPerformed(ActionEvent e){
             frame.dispose();
@@ -102,6 +140,36 @@ public class MainPrincipal {
         public void actionPerformed(ActionEvent e) {
             frame.setContentPane(entre_affectAffectation);
             frame.setVisible(true);
+        }
+        
+    }
+    
+    class CancelToWelcole implements ActionListener{
+        public void actionPerformed(ActionEvent e){
+            frame.setContentPane(afficherMenu);
+            frame.setVisible(true);
+        }
+    }
+    
+    class EnableEmploye implements CaretListener{
+
+        @Override
+        public void caretUpdate(CaretEvent e) {
+            if(entre_employe.getMatricule().getText().length() == 0 || entre_employe.getNom().getText().length() ==0){
+                entre_employe.getPrenom().setEnabled(false);
+                entre_employe.getDateNaissance().setEnabled(false);
+                entre_employe.getDateDePrise().setEnabled(false);
+                entre_employe.getAdresse().setEnabled(false);
+                entre_employe.getCategorie().setEnabled(false);
+                entre_employe.getFonction().setEnabled(false);
+            }else{
+                entre_employe.getPrenom().setEnabled(true);
+                entre_employe.getDateNaissance().setEnabled(true);
+                entre_employe.getDateDePrise().setEnabled(true);
+                entre_employe.getAdresse().setEnabled(true);
+                entre_employe.getCategorie().setEnabled(true);
+                entre_employe.getFonction().setEnabled(true);
+            }
         }
         
     }
