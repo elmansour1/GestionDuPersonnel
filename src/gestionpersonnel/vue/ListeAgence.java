@@ -32,8 +32,8 @@ public class ListeAgence extends JPanel{
      public void init(){
         this.setLayout(new GridBagLayout());
         applicationLabel = new JLabel("Liste des Agences");
-        valider = new JButton("Valider");
-        annuler = new JButton("Annuler");
+        valider = new JButton("Imprimer");
+        annuler = new JButton("Retour");
         tableListeAgence = new JTable();
         
         tableListeAgence.setModel((new DefaultTableModel(
@@ -61,6 +61,16 @@ public class ListeAgence extends JPanel{
         this.add(new JScrollPane(tableListeAgence));
         gbc.gridx = 0;
 	gbc.gridwidth = 1;
+        
+        gbc.gridx = 0;
+        gbc.gridy = 6;
+        gbc.gridwidth = 1;
+	gbc.gridheight = 1;
+	this.add(valider,gbc);
+		 
+	gbc.gridx = 2;
+	gbc.gridwidth = GridBagConstraints.REMAINDER;
+	this.add(annuler, gbc);
     }
     
 }
