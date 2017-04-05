@@ -43,14 +43,17 @@ public class MainPrincipal {
         accueil.addQuitterListener(new ExitListener());
         
         
-        entre_employe.addValiderInsertListener(new AjouterEmploye());
+        //entre_employe.addValiderInsertListener((ActionListener) new EnableEmploye());
         entre_employe.addEnabledTextFieldManager(new EnableEmploye());
         entre_employe.addAnnulerAccueilListener(new RetourAccueil());
         entre_employe.addQutteListener(new ExitListener());
+        
+        
         liste_Employe.addCancelListener(new CancelToWelcole());
        // entre_employe.addEnabledTextFieldManager((CaretListener) new AjouterEmploye());
        
-       entre_Agence.addValiderListener(new AjouterAgence());
+       //entre_Agence.addValiderListener(new AjouterAgence());
+       entre_Agence.addEnabledTextField(new EnableAgence());
        entre_Agence.addAnnulerListener(new RetourAccueil());
        
        
@@ -155,7 +158,9 @@ public class MainPrincipal {
 
         @Override
         public void caretUpdate(CaretEvent e) {
-            if(entre_employe.getMatricule().getText().length() == 0 || entre_employe.getNom().getText().length() ==0){
+            if(entre_employe.getMatricule().getText().length() == 0 || 
+                    entre_employe.getNom().getText().length() ==0){
+                
                 entre_employe.getPrenom().setEnabled(false);
                 entre_employe.getDateNaissance().setEnabled(false);
                 entre_employe.getDateDePrise().setEnabled(false);
@@ -170,6 +175,35 @@ public class MainPrincipal {
                 entre_employe.getCategorie().setEnabled(true);
                 entre_employe.getFonction().setEnabled(true);
             }
+        }
+        
+    }
+    
+    class EnableAgence implements CaretListener{
+
+        @Override
+        public void caretUpdate(CaretEvent e) {
+            if(entre_Agence.getNom().getText().length() == 0 || 
+               entre_Agence.getLocalisation().getText().length() ==0){
+                
+                entre_Agence.getNom().setEnabled(false);
+                entre_Agence.getLocalisation().setEnabled(false);
+        
+                
+            }else{
+                entre_Agence.getNom().setEnabled(true);
+                entre_Agence.getLocalisation().setEnabled(true);
+                
+                    if(!(entre_Agence.getNom().getText().length() ==0) && !(entre_Agence.getLocalisation().getText().length() ==0)){
+                        entre_Agence.getNom().setEnabled(true);
+                        entre_Agence.getLocalisation().setEnabled(true);
+                    }else{
+                     entre_Agence.getNom().setEnabled(false);
+                     entre_Agence.getLocalisation().setEnabled(false);
+           
+                    }
+                
+                }
         }
         
     }
@@ -240,8 +274,5 @@ public class MainPrincipal {
     
     
     
-    public static void main(String[] args) {
-        MainPrincipal m = new MainPrincipal();
-    }
-    
+   
 }
