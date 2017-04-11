@@ -26,12 +26,9 @@ public class EntrerPermission extends JPanel{
     
     private JTextField matricule,nom,prenom,adresse,dateNaissance,dateDePrise,
             code,motif,objet;
-    private JComboBox sexe,fonction,categorie;
+    private JTextField sexe,fonction,categorie;
     private JButton valider, annuler;
     
-    private String sex[]={"Feminin","Masculin"};
-    private String fon[]={"Peseur","Caissiere","Livreuse","Magasinier"};
-    private String cat[]={"A","B","C","D","E","F"};
     
     public EntrerPermission(){
         init();
@@ -65,9 +62,9 @@ public class EntrerPermission extends JPanel{
         dateNaissance = new JTextField(10);
         dateDePrise = new JTextField(10);
        
-        sexe = new JComboBox(sex);
-        fonction = new JComboBox(fon);
-        categorie = new JComboBox(cat);
+        sexe = new JTextField(10);
+        fonction = new JTextField(10);
+        categorie = new JTextField(10);
         
         valider = new JButton("Valider");
         annuler = new JButton("Annuler");
@@ -242,6 +239,9 @@ public class EntrerPermission extends JPanel{
         dateNaissance.addCaretListener(caretListener);
         dateDePrise.addCaretListener(caretListener);
         adresse.addCaretListener(caretListener);
+        sexe.addCaretListener(caretListener);
+        fonction.addCaretListener(caretListener);
+        categorie.addCaretListener(caretListener);
         
         
         
@@ -423,29 +423,47 @@ public class EntrerPermission extends JPanel{
         this.objet = objet;
     }
 
-    public JComboBox getSexe() {
+    public JTextField getSexe() {
         return sexe;
     }
 
-    public void setSexe(JComboBox sexe) {
+    public void setSexe(JTextField sexe) {
         this.sexe = sexe;
     }
 
-    public JComboBox getFonction() {
+    public JTextField getFonction() {
         return fonction;
     }
 
-    public void setFonction(JComboBox fonction) {
+    public void setFonction(JTextField fonction) {
         this.fonction = fonction;
     }
 
-    public JComboBox getCategorie() {
+    public JTextField getCategorie() {
         return categorie;
     }
 
-    public void setCategorie(JComboBox categorie) {
+    public void setCategorie(JTextField categorie) {
         this.categorie = categorie;
     }
+
+    public JButton getValider() {
+        return valider;
+    }
+
+    public void setValider(JButton valider) {
+        this.valider = valider;
+    }
+
+    public JButton getAnnuler() {
+        return annuler;
+    }
+
+    public void setAnnuler(JButton annuler) {
+        this.annuler = annuler;
+    }
+
+   
         
     
    
