@@ -26,12 +26,10 @@ public class EntrerAffectation  extends JPanel{
             nomAgenceLabel,localisationLabel;
     private JTextField matricule,nom,prenom,adresse,dateNaissance,dateDePrise,
             numero,motif,objet,nomAgence,localisation;
-    private JComboBox sexe,fonction,categorie;
+    private JTextField fonction,categorie;
     private JButton valider, annuler;
     
-    private String sex[]={"Feminin","Masculin"};
-    private String fon[]={"Peseur","Caissiere","Livreuse","Magasinier"};
-    private String cat[]={"A","B","C","D","E","F"};
+    
     
     public EntrerAffectation(){
         init();
@@ -48,30 +46,22 @@ public class EntrerAffectation  extends JPanel{
         matriculeLabel = new JLabel("Matricule");
         nomLabel = new JLabel("Nom");
         prenomLabel = new JLabel("Prenom");
-        dateNaissanceLabel = new JLabel("Date de Naissance");
-        dateDePriseLabel = new JLabel("Date de prise de fonction");
-        adresseLabel = new JLabel("Adresse");
-        sexeLabel = new JLabel("Sexe");
         fonctionLabel = new JLabel("Fonction");
         categorieLabel = new JLabel("Categorie");
-        nomLabel = new JLabel("Nom Agence");
+        nomAgenceLabel = new JLabel("Nom Agence");
         localisationLabel = new JLabel("Localisation");
         
         numero = new JTextField(10);
         motif = new JTextField(10);
         objet = new JTextField(10);
-        matricule = new JTextField(10);
         nom = new JTextField(10);
         prenom = new JTextField(10);
-        adresse = new JTextField(10);
-        dateNaissance = new JTextField(10);
-        dateDePrise = new JTextField(10);
-        nom = new JTextField(10);
+        nomAgence = new JTextField(10);
         localisation = new JTextField(10);
         
-        sexe = new JComboBox(sex);
-        fonction = new JComboBox(fon);
-        categorie = new JComboBox(cat);
+        
+        fonction = new JTextField(10);
+        categorie = new JTextField(10);
         
         valider = new JButton("Valider");
         annuler = new JButton("Annuler");
@@ -118,16 +108,6 @@ public class EntrerAffectation  extends JPanel{
         gbc.gridy = 4;
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
-        this.add(matriculeLabel,gbc);
-        
-        gbc.gridx = 2;
-        gbc.gridwidth = GridBagConstraints.REMAINDER;
-        this.add(matricule,gbc);
-        
-         gbc.gridx = 0;
-        gbc.gridy = 5;
-        gbc.gridwidth = 1;
-        gbc.gridheight = 1;
         this.add(nomLabel,gbc);
         
         gbc.gridx = 2;
@@ -135,7 +115,7 @@ public class EntrerAffectation  extends JPanel{
         this.add(nom,gbc);
         
         gbc.gridx = 0;
-        gbc.gridy = 6;
+        gbc.gridy = 5;
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         this.add(prenomLabel,gbc);
@@ -143,49 +123,9 @@ public class EntrerAffectation  extends JPanel{
         gbc.gridx = 2;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
         this.add(prenom,gbc);
-        
+          
         gbc.gridx = 0;
-        gbc.gridy = 7;
-        gbc.gridwidth = 1;
-        gbc.gridheight = 1;
-        this.add(dateNaissanceLabel,gbc);
-        
-        gbc.gridx = 2;
-        gbc.gridwidth = GridBagConstraints.REMAINDER;
-        this.add(dateNaissance,gbc);
-        
-        gbc.gridx = 0;
-        gbc.gridy = 8;
-        gbc.gridwidth = 1;
-        gbc.gridheight = 1;
-        this.add(dateDePriseLabel,gbc);
-        
-        gbc.gridx = 2;
-        gbc.gridwidth = GridBagConstraints.REMAINDER;
-        this.add(dateDePrise,gbc);
-        
-        gbc.gridx = 0;
-        gbc.gridy = 9;
-        gbc.gridwidth = 1;
-        gbc.gridheight = 1;
-        this.add(adresseLabel,gbc);
-        
-        gbc.gridx = 2;
-        gbc.gridwidth = GridBagConstraints.REMAINDER;
-        this.add(adresse,gbc);
-        
-        gbc.gridx = 0;
-        gbc.gridy = 10;
-        gbc.gridwidth = 1;
-        gbc.gridheight = 1;
-        this.add(sexeLabel,gbc);
-        
-        gbc.gridx = 2;
-        gbc.gridwidth = GridBagConstraints.REMAINDER;
-        this.add(sexe,gbc);
-        
-        gbc.gridx = 0;
-        gbc.gridy = 11;
+        gbc.gridy = 6;
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         this.add(fonctionLabel,gbc);
@@ -195,7 +135,7 @@ public class EntrerAffectation  extends JPanel{
         this.add(fonction,gbc);
         
         gbc.gridx = 0;
-        gbc.gridy = 12;
+        gbc.gridy = 7;
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         this.add(categorieLabel,gbc);
@@ -205,17 +145,17 @@ public class EntrerAffectation  extends JPanel{
         this.add(categorie,gbc);
         
         gbc.gridx = 0;
-        gbc.gridy = 13;
+        gbc.gridy = 8;
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
-        this.add(nomLabel,gbc);
+        this.add(nomAgenceLabel,gbc);
         
         gbc.gridx = 2;
         gbc.gridwidth = GridBagConstraints.REMAINDER;
-        this.add(nom,gbc);
+        this.add(nomAgence,gbc);
         
         gbc.gridx = 0;
-        gbc.gridy = 14;
+        gbc.gridy = 9;
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         this.add(localisationLabel,gbc);
@@ -226,7 +166,7 @@ public class EntrerAffectation  extends JPanel{
         
         
         gbc.gridx = 0;
-        gbc.gridy = 15;
+        gbc.gridy = 10;
         gbc.gridwidth = 1;
         gbc.gridheight = 1;
         this.add(valider,gbc);
@@ -249,13 +189,10 @@ public class EntrerAffectation  extends JPanel{
         numero.addCaretListener(caretListener);
         motif.addCaretListener(caretListener);
         objet.addCaretListener(caretListener);
-        matricule.addCaretListener(caretListener);
         nom.addCaretListener(caretListener);
         prenom.addCaretListener(caretListener);
-        dateNaissance.addCaretListener(caretListener);
-        dateDePrise.addCaretListener(caretListener);
-        adresse.addCaretListener(caretListener);
-        
+        fonction.addCaretListener(caretListener);
+        categorie.addCaretListener(caretListener);
         nomAgence.addCaretListener(caretListener);
         localisation.addCaretListener(caretListener);
         
@@ -470,37 +407,38 @@ public class EntrerAffectation  extends JPanel{
         this.localisation = localisation;
     }
 
-    public JComboBox getSexe() {
-        return sexe;
-    }
-
-    public void setSexe(JComboBox sexe) {
-        this.sexe = sexe;
-    }
-
-    public JComboBox getFonction() {
+    public JTextField getFonction() {
         return fonction;
     }
 
-    public void setFonction(JComboBox fonction) {
+    public void setFonction(JTextField fonction) {
         this.fonction = fonction;
     }
 
-    public JComboBox getCategorie() {
+    public JTextField getCategorie() {
         return categorie;
     }
 
-    public void setCategorie(JComboBox categorie) {
+    public void setCategorie(JTextField categorie) {
         this.categorie = categorie;
     }
 
-    public String[] getSex() {
-        return sex;
+    public JButton getValider() {
+        return valider;
     }
 
-    public void setSex(String[] sex) {
-        this.sex = sex;
+    public void setValider(JButton valider) {
+        this.valider = valider;
     }
+
+    public JButton getAnnuler() {
+        return annuler;
+    }
+
+    public void setAnnuler(JButton annuler) {
+        this.annuler = annuler;
+    }
+
     
     
 }
