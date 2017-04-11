@@ -5,6 +5,7 @@
  */
 package gestionpersonnel.dao.impl;
 
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import gestionpersonnel.connexion.ConnectionFactory;
 import gestionpersonnel.dao.IAffectationDao;
 import gestionpersonnel.data.Affectation;
@@ -33,10 +34,17 @@ public class AffectationDaoImpl implements IAffectationDao{
     @Override
     public Affectation createAffectation(Affectation affectation) {
         try {
-            PreparedStatement p = connection.prepareStatement("INSERT INTO affectation(numero,motif,objet) VALUES(?,?,?)");
+            PreparedStatement p = connection.prepareStatement("INSERT INTO affectation(numero,motif,objet,nom,prenom,"
+                    + "fonction,categorie,nomAgence,localisation) VALUES(?,?,?,?,?,?,?,?,?)");
             p.setString(1, affectation.getNumero());
             p.setString(2, affectation.getMotif());
             p.setString(3, affectation.getObjet());
+            p.setString(4, affectation.getNomEmpl());
+            p.setString(5, affectation.getPrenomEmpl());
+            p.setString(6, affectation.getFonction());
+            p.setString(7, affectation.getCategorie());
+            p.setString(8, affectation.getNomAgence());
+            p.setString(9, affectation.getLocalisation());
             p.execute();
         } catch (SQLException e) {
             Logger.getLogger(AffectationDaoImpl.class.getName()).log(Level.SEVERE,null,e);
@@ -48,11 +56,23 @@ public class AffectationDaoImpl implements IAffectationDao{
     public Affectation updateAffectation(Affectation affectation) {
         
         try {
-            PreparedStatement p = connection.prepareStatement("UPDATE affectation set numero=?,motif=?,objet=?");
+            PreparedStatement p = connection.prepareStatement("UPDATE affectation set numero=?,motif=?,objet=?,"
+                    + "nom=?,prenom=?,dateNaissance=?,dateDePriseFonction=?,"
+                    + "adresse=?,sexe=?,fonction=?,categorie=?,nomAgence=?,localisation=?");
             p.setString(1, affectation.getNumero());
             p.setString(2, affectation.getMotif());
             p.setString(3, affectation.getObjet());
-            p.executeUpdate();
+            p.setString(4, affectation.getNomEmpl());
+            p.setString(5, affectation.getPrenomEmpl());
+           // p.setString(6, affectation.getDateNaissance());
+            //p.setString(7, affectation.getDateDePrise());
+            p.setString(8, affectation.getAdresse());
+            p.setString(9, affectation.getSexe());
+            p.setString(10, affectation.getFonction());
+            p.setString(11, affectation.getCategorie());
+            p.setString(12, affectation.getNomAgence());
+            p.setString(13, affectation.getLocalisation());
+          p.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(AffectationDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
         }
