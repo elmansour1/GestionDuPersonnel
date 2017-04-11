@@ -39,8 +39,8 @@ public class EmployeDaoImpl implements IEmployeDao{
             p.setString(1, employe.getMatricule());
             p.setString(2, employe.getNom());
             p.setString(3, employe.getPrenom());
-            p.setDate(4, (Date) employe.getDateNaissance());
-            p.setDate(5, (Date) employe.getDateDePriseDeFonction());
+            p.setString(4,employe.getDateNaissance());
+            p.setString(5,employe.getDateDePriseDeFonction());
             p.setString(6, employe.getAdresse());
             p.setString(7, employe.getSexe());
             p.setString(8, employe.getFonction());
@@ -61,8 +61,8 @@ public class EmployeDaoImpl implements IEmployeDao{
             p.setString(1, employe.getMatricule());
             p.setString(2, employe.getNom());
             p.setString(3, employe.getPrenom());
-            p.setDate(4, (Date) employe.getDateNaissance());
-            p.setDate(5, (Date) employe.getDateDePriseDeFonction());
+            p.setString(4, employe.getDateNaissance());
+            p.setString(5,employe.getDateDePriseDeFonction());
             p.setString(6, employe.getAdresse());
             p.setString(7, employe.getSexe());
             p.setString(8, employe.getFonction());
@@ -86,8 +86,8 @@ public class EmployeDaoImpl implements IEmployeDao{
                 employe.setMatricule(r.getString("matricule"));
                 employe.setNom(r.getString("nom"));
                 employe.setPrenom(r.getString("prenom"));
-                employe.setDateNaissance(r.getDate("dateDeNaissance"));
-                employe.setDateDePriseDeFonction(r.getDate("dateDePriseFonction"));
+                employe.setDateNaissance(r.getString("dateDeNaissance"));
+                employe.setDateDePriseDeFonction(r.getString("dateDePriseFonction"));
                 employe.setAdresse(r.getString("adresse"));
                 employe.setSexe(r.getString("sexe"));
                 employe.setFonction(r.getString("fonction"));
@@ -111,8 +111,8 @@ public class EmployeDaoImpl implements IEmployeDao{
                 employe.setMatricule(r.getString("matricule"));
                 employe.setNom(r.getString("nom"));
                 employe.setPrenom(r.getString("prenom"));
-                employe.setDateNaissance(r.getDate("dateDeNaissance"));
-                employe.setDateDePriseDeFonction(r.getDate("dateDePriseFonction"));
+                employe.setDateNaissance(r.getString("dateDeNaissance"));
+                employe.setDateDePriseDeFonction(r.getString("dateDePriseFonction"));
                 employe.setAdresse(r.getString("adresse"));
                 employe.setSexe(r.getString("sexe"));
                 employe.setFonction(r.getString("fonction"));
