@@ -30,8 +30,20 @@ public class PermissionDaoImpl implements IPermissionDao{
     @Override
     public Permission createPersmission(Permission permission) {
         try {
-            PreparedStatement p = connection.prepareStatement("INSERT INTO permission(code) VAlUES(?)");
+            PreparedStatement p = connection.prepareStatement("INSERT INTO permission(code,motif,objet,mat,"
+                    + "nom,prenom,dateN,dateF,adresse,sexe,fonction,categorie) VAlUES(?,?,?,?,?,?,?,?,?,?,?,?)");
             p.setString(1,permission.getCode());
+            p.setString(2, permission.getMotifP());
+            p.setString(3, permission.getObjetP());
+            p.setString(4, permission.getMat());
+            p.setString(5, permission.getNomP());
+            p.setString(6, permission.getPrenomP());
+            p.setString(7, permission.getDateN());
+            p.setString(8, permission.getDateF());
+            p.setString(9, permission.getAdresseP());
+            p.setString(10, permission.getSexeP());
+            p.setString(11, permission.getFonction());
+            p.setString(12, permission.getCategorie());
             p.execute();
         } catch (SQLException e) {
             Logger.getLogger(PermissionDaoImpl.class.getName()).log(Level.SEVERE,null,e);
@@ -43,7 +55,22 @@ public class PermissionDaoImpl implements IPermissionDao{
     public Permission updatePersmission(Permission permission) {
         
         try {
-            PreparedStatement p = connection.prepareStatement("UPDATE permission set code=?");
+            PreparedStatement p = connection.prepareStatement("UPDATE permission set code=?,motif=?,objet=?,mat=?,"
+                    + "nom=?,prenom=?,dateN=?,dateF=?,"
+                    + "adresse=?,sexe=?,fonction=?,categorie=?");
+            p.setString(1,permission.getCode());
+            p.setString(2, permission.getMotifP());
+            p.setString(3, permission.getObjetP());
+            p.setString(4, permission.getMat());
+            p.setString(5, permission.getNomP());
+            p.setString(6, permission.getPrenomP());
+            p.setString(7, permission.getDateN());
+            p.setString(8, permission.getDateF());
+            p.setString(9, permission.getAdresseP());
+            p.setString(10, permission.getSexeP());
+            p.setString(11, permission.getFonction());
+            p.setString(12, permission.getCategorie());
+           
             p.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(PermissionDaoImpl.class.getName()).log(Level.SEVERE, null, ex);
