@@ -97,6 +97,10 @@ public class EntrerAgence extends JPanel{
         
     }
 
+    public JButton getValider() {
+        return valider;
+    }
+    
     public JLabel getNomLabel() {
         return nomLabel;
     }
