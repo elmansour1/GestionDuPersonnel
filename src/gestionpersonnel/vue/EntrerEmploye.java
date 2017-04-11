@@ -24,13 +24,10 @@ public class EntrerEmploye extends JPanel{
     private JLabel applicationLabel,matriculeLabel,nomLabel,prenomLabel,dateNaissanceLabel,dateDePriseLabel,
             adresseLabel,sexeLabel,fonctionLabel,categorieLabel;
     private JTextField matricule,nom,prenom,adresse,dateNaissance,dateDePrise;
-    private JComboBox sexe,fonction,categorie;
+    private JTextField sexe,fonction,categorie;
     private JButton valider, annuler,quitter;
     
-    private String sex[]={"Feminin","Masculin"};
-    private String fon[]={"Peseur","Caissiere","Livreuse","Magasinier"};
-    private String cat[]={"A","B","C","D","E","F"};
-    
+   
     public EntrerEmploye(){
         init();
         
@@ -61,9 +58,9 @@ public class EntrerEmploye extends JPanel{
         dateDePrise = new JTextField(10);
         
         
-        sexe = new JComboBox(sex);
-        fonction = new JComboBox(fon);
-        categorie = new JComboBox(cat);
+        sexe = new JTextField(10);
+        fonction = new JTextField(10);
+        categorie = new JTextField(10);
         
         valider = new JButton("Valider");
         annuler = new JButton("Annuler");
@@ -201,6 +198,9 @@ public class EntrerEmploye extends JPanel{
         dateNaissance.addCaretListener(caretListenner);
         dateDePrise.addCaretListener(caretListenner);
         adresse.addCaretListener(caretListenner);
+        sexe.addCaretListener(caretListenner);
+        fonction.addCaretListener(caretListenner);
+        categorie.addCaretListener(caretListenner);
         
     }
 
@@ -332,30 +332,40 @@ public class EntrerEmploye extends JPanel{
         this.dateDePrise = dateDePrise;
     }
 
-    public JComboBox getSexe() {
+    public JTextField getSexe() {
         return sexe;
     }
 
-    public void setSexe(JComboBox sexe) {
+    public void setSexe(JTextField sexe) {
         this.sexe = sexe;
     }
 
-    public JComboBox getFonction() {
+    public JTextField getFonction() {
         return fonction;
     }
 
-    public void setFonction(JComboBox fonction) {
+    public void setFonction(JTextField fonction) {
         this.fonction = fonction;
     }
 
-    public JComboBox getCategorie() {
+    public JTextField getCategorie() {
         return categorie;
     }
 
-    public void setCategorie(JComboBox categorie) {
+    public void setCategorie(JTextField categorie) {
         this.categorie = categorie;
     }
 
+    public JButton getQuitter() {
+        return quitter;
+    }
+
+    public void setQuitter(JButton quitter) {
+        this.quitter = quitter;
+    }
+
+    
+    
     public JButton getValider() {
         return valider;
     }
@@ -372,31 +382,4 @@ public class EntrerEmploye extends JPanel{
         this.annuler = annuler;
     }
 
-    public String[] getSex() {
-        return sex;
-    }
-
-    public void setSex(String[] sex) {
-        this.sex = sex;
-    }
-
-    public String[] getFon() {
-        return fon;
-    }
-
-    public void setFon(String[] fon) {
-        this.fon = fon;
-    }
-
-    public String[] getCat() {
-        return cat;
-    }
-
-    public void setCat(String[] cat) {
-        this.cat = cat;
-    }
-    
-   
-    
-    
 }
