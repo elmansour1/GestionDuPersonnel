@@ -52,12 +52,13 @@ public class MainPrincipal {
         liste_Employe.addCancelListener(new CancelToWelcole());
        // entre_employe.addEnabledTextFieldManager((CaretListener) new AjouterEmploye());
        
-       //entre_Agence.addValiderListener(new AjouterAgence());
+       entre_Agence.addValiderListener(new AjouterAgence());
        entre_Agence.addEnabledTextField(new EnableAgence());
        entre_Agence.addAnnulerListener(new RetourAccueil());
        
        
         entre_affectAffectation.addValiderInsertListener(new AjouterAffectation());
+        entre_affectAffectation.addEnabledAffectation(new EnableAffectation());
         entre_affectAffectation.addAnnulerAccueilListener(new RetourAccueil());
         
         entre_Permission.addAnnulerAccueilListener(new RetourAccueil());
@@ -183,27 +184,29 @@ public class MainPrincipal {
 
         @Override
         public void caretUpdate(CaretEvent e) {
-            if(entre_Agence.getNom().getText().length() == 0 || 
-               entre_Agence.getLocalisation().getText().length() ==0){
+            
+              entre_Agence.getNom().setEnabled(true);
+              entre_Agence.getLocalisation().setEnabled(true);
                 
-                entre_Agence.getNom().setEnabled(false);
-                entre_Agence.getLocalisation().setEnabled(false);
+        }
         
-                
-            }else{
-                entre_Agence.getNom().setEnabled(true);
-                entre_Agence.getLocalisation().setEnabled(true);
-                
-                    if(!(entre_Agence.getNom().getText().length() ==0) && !(entre_Agence.getLocalisation().getText().length() ==0)){
-                        entre_Agence.getNom().setEnabled(true);
-                        entre_Agence.getLocalisation().setEnabled(true);
-                    }else{
-                     entre_Agence.getNom().setEnabled(false);
-                     entre_Agence.getLocalisation().setEnabled(false);
-           
-                    }
-                
-                }
+    }
+    
+    class EnableAffectation implements CaretListener{
+
+        @Override
+        public void caretUpdate(CaretEvent e) {
+            entre_affectAffectation.getNumero().setEnabled(true);
+            entre_affectAffectation.getMotif().setEnabled(true);
+            entre_affectAffectation.getObjet().setEnabled(true);
+            entre_affectAffectation.getMatricule().setEnabled(true);
+            entre_affectAffectation.getNom().setEnabled(true);
+            entre_affectAffectation.getPrenom().setEnabled(true);
+            entre_affectAffectation.getDateNaissance().setEnabled(true);
+            entre_affectAffectation.getDateDePrise().setEnabled(true);
+            entre_affectAffectation.getAdresse().setEnabled(true);
+            entre_affectAffectation.getNomAgence().setEnabled(true);
+            entre_affectAffectation.getLocalisation().setEnabled(true);
         }
         
     }
